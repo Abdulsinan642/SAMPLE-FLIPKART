@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      padding: 10px 20px;
+     
+    }
+
+    nav a:hover {
+      background-color: lightgray;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 200px;
+      height: 200px;
+    }
+</head>
+
+  </style>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Service</a>
+    <a href="#">Help</a>
+  </nav>
+
+  <h1>Flipkart</h1>
+
+  <div class="product-container" id="product-container">
+  </div>
+
+  <script>
+    var products1 = [
+      {
+        url: "https://rukminim2.flixcart.com/image/850/1000/xif0q/watch/f/f/l/2-ml-30-mercy-boys-original-imagg4gbchgq59ug.jpeg?q=90&crop=false",
+        id: 1,
+        productname: "Watch",
+        price: 25000,
+        brand: "Rolex",
+        quality: 20,
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61uOFBe4b3L._AC_UF1000,1000_QL80_.jpg",
+        id: 2,
+        productname: "Mobile",
+        price: 250000,
+        brand: "Apple",
+        quality: 10,
+      },
+      {
+        url: "https://www.crocs.in/media/catalog/product/2/0/205393_066_ALT100.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=cover&height=185&width=120&auto=webp&format=pjpg",
+        id: 3,
+        productname: "Chappal",
+        price: 2000,
+        brand: "Crocs",
+        quality: 30,
+      },
+      {
+        url: "https://aroka.in/cdn/shop/files/Aroka06-10-233944_fa19b681-8a87-4c40-8f8d-70e87d24b3ba.jpg?v=1724408298&width=1445",
+        id: 4,
+        productname: "Dress",
+        price: 1000,
+        brand: "Puma",
+        quality: 40,
+      }
+    ];
+
+    var productContainer = document.getElementById('product-container');
+
+    products1.forEach(function (product) {
+      var productCard = `
+        <div class="product-card">
+          <img src="${product.url}" alt="${product.productname}">
+          <h3>${product.productname}</h3>
+          <p>ID: ${product.id}</p>
+          <p>Price: $${product.price}</p>
+          <p>Brand: ${product.brand}</p>
+          <p>Quality: ${product.quality}</p>
+        </div>
+      `;
+      productContainer.innerHTML += productCard;
+    });
+  </script>
+</body>
+</html>
